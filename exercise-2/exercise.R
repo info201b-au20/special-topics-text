@@ -1,13 +1,11 @@
-# Set up
-library(tidytext)
-library(dplyr)
-library(stringr)
-library(ggplot2)
+# What are informatics courses about?
 library(rvest)
+library(tidyverse)
+library(tidytext)
 
 # Use the `read_html` function to load this webpage:
 # https://www.washington.edu/students/crscat/info.html
-page <- read_html("https://www.washington.edu/students/crscat/info.html")
+page <- read_html("http://www.washington.edu/students/crscat/info.html")
 
 # Extract the text of each course title from the page by using the `html_nodes`
 # function to identify the *bold* elements ('b'), then
@@ -35,7 +33,7 @@ word_count <- all_words %>%
 
 # Create a set of stop words by adding (more) irrelevant words to the stop_words dataframe
 more_stop_words <- data.frame(
-  word = c("course", "info", "information"),
+  word = c("course", "info", "information", "myplan", "details"),
   lexicon = "custom"
 )
 
